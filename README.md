@@ -24,21 +24,24 @@ Before setting up the Jenkins pipeline for deploying Ansible playbooks, make sur
 
 Follow these steps to set up the deployment process:
 
-1. Clone this Repository
+1. **Clone this Repository** :
+```bash
+git clone https://github.com/mansourka06/ansible-jenkins-pipeline.git
+```
 
-2. Configure Ansible: Modify the ansible.cfg and inventory.ini files in the repository according to your Ansible setup. Make sure you have defined the target servers properly.
+2. **Configure Ansible:** Modify the ansible.cfg and inventory.ini files in the repository according to your Ansible setup. Make sure you have defined the target servers properly.
 
-3. Create Jenkins Pipeline:
+3. **Create Jenkins Pipeline:**
     - Log in to your Jenkins server and create a new pipeline project.
     - In the pipeline configuration, link your GitHub repository and specify the Jenkinsfile path as Jenkinsfile.
 
-4. Update Jenkinsfile: Open the Jenkinsfile in this repository and make the following modifications:
+4. **Update Jenkinsfile:** Open the Jenkinsfile in this repository and make the following modifications:
     - Adjust the ansiblePlaybook stage to point to your Ansible playbook file.
     - Configure the necessary environment variables like ANSIBLE_CONFIG, ANSIBLE_HOST_KEY_CHECKING, etc., based on your needs.
 
-5. Credentials: Add any required credentials (SSH keys, Ansible vault password, etc.) to the Jenkins credentials store.
+5. **Credentials:** Add any required credentials (SSH keys, Ansible vault password, etc.) to the Jenkins credentials store.
 
-6. Run Pipeline: Trigger the pipeline manually or set up webhooks to automatically trigger the pipeline whenever changes are pushed to the repository.
+6. **Run Pipeline:** Trigger the pipeline manually or set up webhooks to automatically trigger the pipeline whenever changes are pushed to the repository.
 
 
 ## Jenkins Pipeline Stages
