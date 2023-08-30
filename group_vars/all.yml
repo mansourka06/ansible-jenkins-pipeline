@@ -1,0 +1,4 @@
+---
+envrionment: prod
+
+playbook_target_host: "{{ envrionment }}"

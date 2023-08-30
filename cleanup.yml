@@ -1,0 +1,31 @@
+---
+- name: Cleanup Deployment
+  hosts: "{{ playbook_target_host }}"
+  become: yes
+  vars_files:
+    - files/secrets/credentials.yml
+
+  tasks:
+    - name: "Stop and remove Apache container"
+      docker_container:
+        name: webapp
+        image: httpd
+        state: absent
+
+    - name: "Uninstall docker python"
+      pip:
+        name: docker-py
+        state: absent
+
+    - name: "Uninstall python-pip"
+      yum:
+        name: python-pip
+        state: absent
+        autoremove: yes
+
+    - name: "Uninstall EPEL repo"
+      package:
+        name: epel-release
+        state: absent
+      when: ansible_distribution == "CentOS"
+...
